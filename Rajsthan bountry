@@ -1,0 +1,5 @@
+var admin2 = ee.FeatureCollection('FAO/GAUL_SIMPLIFIED_500m/2015/level2');
+
+var raj = admin2.filter(ee.Filter.eq('ADM1_NAME', 'Rajasthan'));
+
+Map.addLayer(raj, {color: 'grey'}, 'All Admin2 Polygons');
