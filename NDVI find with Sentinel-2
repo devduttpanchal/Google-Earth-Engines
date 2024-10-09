@@ -1,0 +1,25 @@
+var image = ee.ImageCollection("COPERNICUS/S2_SR")
+  .filterDate('2022-10-01','2022-11-30')
+  .filterBounds(geometry);
+  
+  
+Map.addLayer(image,{},'image');
+
+//function for Find NDVI
+
+var NDVI = function(image){
+  return image.expression(
+    '(NIR-RED)/(NIR+RED)',
+    {
+    'NIR' : image.select('B8'),
+    'RED' : image.select('B4')}
+    ).rename('NDVI').copyProperties(image, image.propertyNames());
+};
+
+var NDVI_2022 = image.map(NDVI);
+
+Map.addLayer(NDVI_2022,imageVisParam,'NDVI');
+
+var mean_NDVI = NDVI_2022.mean();
+
+Map.addLayer(mean_NDVI,imageVisParam,'MEAN NDVI');
