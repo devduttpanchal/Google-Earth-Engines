@@ -1,0 +1,30 @@
+print('Hello Word!!')
+
+//variable
+
+var city = 'Ahemdabad';
+var stute = 'Gujrat'; 
+
+print(city,stute)
+
+var populition = 3400000;
+print (populition)
+
+var majorCities = ['Mumbai', 'Delhi', 'Chennai', 'Kolkata'];
+print(majorCities);
+
+var cityData = {
+  'city': city,
+  'population':  populition,
+  'elevation': 930
+};
+print(cityData);
+
+var fun = function(name){
+  return "Panchal " + name ;
+};
+
+print(fun('devdutt'))
+
+var LarzCity = ['Tokyo','delhi','Shanigapur','Mexico','Las vagas'];
+print (LarzCity);
