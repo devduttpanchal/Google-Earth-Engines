@@ -1,0 +1,9 @@
+var admin2 = ee.FeatureCollection("FAO/GAUL_SIMPLIFIED_500m/2015/level2");
+
+var gujrat = admin2.filter(ee.Filter.eq('ADM1_NAME', 'Gujarat'));
+
+
+var col = {'color': 'green'};
+
+
+Map.addLayer(gujrat,col,'gujarat dis');
