@@ -1,0 +1,19 @@
+
+var dataset = ee.ImageCollection("NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG")
+  .filter(ee.Filter.date('2005-01-01','2015-01-01'))
+  .filterBounds(geometry)
+  ;
+  
+var dataset = dataset.select('avg_rad');
+
+Map.centerObject((geometry),8)
+
+var style = {
+  max : 50,
+  palette : ['black','white','yellow','orange','red']
+};
+
+Map.addLayer(dataset,style,'gujrat');
+
+
+
